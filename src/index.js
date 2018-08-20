@@ -16,8 +16,13 @@ class App extends View {
     return template
   }
 
+  get events () {
+    return {
+      'click button': this.onClickButton
+    }
+  }
+
   initialize () {
-    console.log(this.model);
     this.render()
   }
 
@@ -25,6 +30,14 @@ class App extends View {
     const temp = this.template(this.model);
     this.$el.html(temp)
     return this;
+  }
+  /**
+   *
+   * @param {JQuery.Event} e
+   */
+  onClickButton (e) {
+    console.log(e);
+    alert('work fine');
   }
 }
 
