@@ -1,4 +1,4 @@
-#Backbone Studies
+# Backbone Studies
  A small template to show  use backbone with webpack/babel and ejs in templates
 
  # Util Links
