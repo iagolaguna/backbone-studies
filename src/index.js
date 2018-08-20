@@ -1,11 +1,12 @@
-import { View } from 'backbone';
+import { View, Model } from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
 import template from './template.ejs'
 
 class App extends View {
-  constructor({ model = {} }) {
-    super({ model })
+  constructor(attributes) {
+    super(attributes)
+    this.listenTo(this.model, 'change', this.render);
   }
 
   get el () {
@@ -27,7 +28,7 @@ class App extends View {
   }
 
   render () {
-    const temp = this.template(this.model);
+    const temp = this.template(this.model.attributes);
     this.$el.html(temp)
     return this;
   }
@@ -37,11 +38,16 @@ class App extends View {
    */
   onClickButton (e) {
     console.log(e);
-    alert('work fine');
+    let counter = this.model.get('counter') + 1;
+    console.log(this.model.set({ counter }));
   }
 }
 
 $(document.body).ready(() => {
-  const app = new App({ model: { name: 'Iago Leonardo Laguna' } });
+
+  const model = new Model({ name: 'Iago Leonardo Laguna', counter: 0 });
+  console.log(model);
+  const app = new App({ model });
   console.log(app);
+  // setInterval(() => console.log(model), 1000);
 })
