@@ -23,7 +23,13 @@ module.exports = {
       {
         test: /\.s[c|a]ss$/,
         use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']
-      }
+      },
+      {
+        test: /\.html$/,
+        exclude: /node_modules/,
+        use: { loader: 'html-loader' }
+      },
+      { test: /\.ejs$/, loader: 'ejs-loader' },
     ]
   },
   plugins: [
@@ -32,16 +38,16 @@ module.exports = {
       filename: 'style.[contenthash].css',
     }),
     new HtmlWebpackPlugin({
-      inject: false,
+      inject: true,
       hash: true,
       template: './src/index.html',
       filename: 'index.html',
     }),
     new WebpackMd5Hash()
   ],
-      // Pretty stats
-      stats: { colors: true },
+  // Pretty stats
+  stats: { colors: true },
 
-      // Sourcemap config
-      devtool: 'source-map'
+  // Sourcemap config
+  devtool: 'source-map'
 };

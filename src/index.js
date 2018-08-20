@@ -1,33 +1,34 @@
 import { View } from 'backbone';
 import _ from 'underscore';
 import $ from 'jquery';
+import template from './template.ejs'
 
 class App extends View {
-  constructor () {
-    super()
+  constructor({ model = {} }) {
+    super({ model })
   }
-  el () {
+
+  get el () {
     return '#app'
   }
 
-  template () {
-    return _.template($('<h1> Hello World </h1>').html())
+  get template () {
+    return template
   }
 
-
   initialize () {
+    console.log(this.model);
     this.render()
   }
 
   render () {
-    const html = this.template({})
-    this.$el.html(html)
+    const temp = this.template(this.model);
+    this.$el.html(temp)
     return this;
   }
 }
 
 $(document.body).ready(() => {
-  const app = new App();
+  const app = new App({ model: { name: 'Iago Leonardo Laguna' } });
   console.log(app);
-
 })
