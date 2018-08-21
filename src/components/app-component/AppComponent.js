@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import { View } from 'backbone';
 import template from './template.ejs'
 import PersonContainer from '../person-container';
@@ -24,16 +23,14 @@ export default class App extends View {
   }
 
   initialize () {
-    this.personContainer = new PersonContainer({ collection: this.model.attributes.persons });
+    this.personContainer = new PersonContainer({collection: this.model.attributes.persons });
     this.render()
   }
 
   render () {
     const temp = this.template(this.model.attributes);
     this.$el.html(temp)
-    this.personContainer.$el = $('#persons')
-    this.personContainer.render()
-    // this.personContainer.setElement('#persons').render();
+    this.personContainer.setElement(this.$('#persons')).render();
     return this;
   }
   /**
@@ -41,8 +38,8 @@ export default class App extends View {
    * @param {JQuery.Event} e
    */
   onClickButton (e) {
-    console.log(e);
     let counter = this.model.get('counter') + 1;
-    console.log(this.model.set({ counter }));
+    this.model.set({ counter })
+    console.log(this);
   }
 }
