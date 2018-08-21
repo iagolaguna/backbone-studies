@@ -1,4 +1,4 @@
-import * as controller from './PersonItem.js'
+import PersonItem from './PersonItem.js'
 
-export default controller
+export default PersonItem
 

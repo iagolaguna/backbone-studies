@@ -1,11 +1,18 @@
 import { View } from 'backbone';
 import template from './template.ejs'
+import PersonItem from '../person-item'
+
 export default class PersonContainer extends View {
   constructor(attributes) {
     super(attributes)
-    this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.collection, 'change', this.render);
   }
-  get template(){
+
+  get tagName () {
+    return 'div';
+  }
+
+  get template () {
     return template;
   }
 
@@ -14,8 +21,18 @@ export default class PersonContainer extends View {
   }
 
   render () {
-    const temp = this.template(this.model.attributes);
-    this.$el.html(temp)
+    // const temp = this.template({ persons: this.collection });
+    // this.$el.html(temp)
+    this.renderAll();
     return this;
+  }
+
+  renderAll () {
+    this.collection.forEach((person) => this.renderOne(person))
+  }
+
+  renderOne (model) {
+    const personItem = new PersonItem({ model });
+    this.$el.append(personItem.render().el)
   }
 }

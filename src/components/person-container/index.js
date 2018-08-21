@@ -1,4 +1,3 @@
-import * as controller from './PersonContainer.js'
-
-export default controller
+import PersonContainer from './PersonContainer.js'
+export default PersonContainer
 

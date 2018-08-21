@@ -5,8 +5,12 @@ export default class PersonItem extends View {
     super(attributes)
     this.listenTo(this.model, 'change', this.render);
   }
-  get template(){
+  get template () {
     return template;
+  }
+
+  get tagName () {
+    return 'div';
   }
 
   initialize () {
@@ -14,7 +18,7 @@ export default class PersonItem extends View {
   }
 
   render () {
-    const temp = this.template(this.model.attributes);
+    const temp = this.template(this.model);
     this.$el.html(temp)
     return this;
   }
