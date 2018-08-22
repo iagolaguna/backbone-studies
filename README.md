@@ -10,3 +10,4 @@
 * [Learning advanced Javascript via the Backbone.js source code](http://chrisawren.com/posts/Learning-Advanced-JavaScript-via-the-Backbone-js-source-code)
 * [Rendering Subviews with backbone.js](http://nauvalatmaja.com/2014/12/29/rendering-backbone-subview/)
 * [Rendering Subviews with setElement](https://www.joezimjs.com/javascript/backbone-js-subview-rendering-trick/)
+* [EJS Templates](http://ejs.co/)
