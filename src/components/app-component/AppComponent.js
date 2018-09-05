@@ -23,14 +23,15 @@ export default class App extends View {
   }
 
   initialize () {
-    this.personContainer = new PersonContainer({collection: this.model.attributes.persons });
+    this.personContainer = new PersonContainer({collection: this.model.attributes.people });
     this.render()
   }
 
   render () {
     const temp = this.template(this.model.attributes);
+    debugger;
     this.$el.html(temp)
-    this.personContainer.setElement(this.$('#persons')).render();
+    this.personContainer.setElement(this.$('#people')).render();
     return this;
   }
   /**
