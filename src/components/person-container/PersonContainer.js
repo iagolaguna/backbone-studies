@@ -9,7 +9,7 @@ export default class PersonContainer extends View {
   }
 
   get tagName () {
-    return 'div';
+    return 'span';
   }
 
   get template () {
@@ -21,7 +21,7 @@ export default class PersonContainer extends View {
   }
 
   render () {
-    // const temp = this.template({ persons: this.collection });
+    // const temp = this.template({ people: this.collection });
     // this.$el.html(temp)
     this.renderAll();
     return this;

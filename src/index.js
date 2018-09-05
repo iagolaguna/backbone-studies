@@ -9,9 +9,9 @@ import $ from 'jquery';
 $(document.body).ready(() => {
 
   const model = new Model({
-    name: 'Iago Leonardo Laguna',
+    name: 'Backbone test',
     counter: 0,
-    persons: [{
+    people: [{
       name: 'Iago',
       lastName: 'Laguna',
       age: 20
@@ -24,5 +24,4 @@ $(document.body).ready(() => {
   console.log(model);
   const app = new App({ model });
   console.log(app);
-  // setInterval(() => console.log(model), 1000);
 })
