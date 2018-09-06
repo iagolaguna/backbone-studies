@@ -1,0 +1,9 @@
+<div>
+    <h1> <%= name%></h1>
+    <% bills.map( function(element){ %>
+    <div>
+        <%= element.name%>
+        <%= element.value%>
+    </div>
+    <% }); %>    
+</div>

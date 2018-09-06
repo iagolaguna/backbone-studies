@@ -2,8 +2,7 @@ import FriendsTemplate from './friends-template.ejs'
 
 export default class Friends extends Backbone.View {
     constructor(attrs){
-        super(attrs);
-        debugger;
+        super(attrs);        
     }
 
     get tagName(){

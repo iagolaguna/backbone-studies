@@ -29,7 +29,6 @@ export default class App extends View {
 
   render () {
     const temp = this.template(this.model.attributes);
-    debugger;
     this.$el.html(temp)
     this.personContainer.setElement(this.$('#people')).render();
     return this;
