@@ -1,5 +1,5 @@
 ## Views
-> This is a deeper dive into Views, that we've already been seen into the [2-templates](https://github.com/luanraithz/Backbone-Helpers/tree/master/helpers/2-templates)
+> This is a deeper dive into Views, that we've already been seen into the [2-templates](helpers/2-templates)
 
 ### Basic Properties
 
