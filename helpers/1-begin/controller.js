@@ -1,22 +1,22 @@
 import { View } from "backbone";
 
 export class AppView extends View{
-    
+
     constructor(props){
-        super(props)
-        console.log(props)
+        super(props);
     }
 
     get el(){
         return '#container';
     }
 
-    initialize(){ 
+    initialize(){
         this.render();
     }
 
-    render (){ 
+    render (){
         this.$el.html('Hello world11');
+        return this;
     };
 }
 
