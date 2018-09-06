@@ -1,7 +1,7 @@
 ### This file may help you with usefull links and forum posts
 
 ## Material
-
+  * [Backbone.js for Absolute Beginners](https://adrianmejia.com/blog/2012/09/11/backbone-dot-js-for-absolute-beginners-getting-started/)
   * [Backbone.js](http://backbonejs.org/)
   * [Backbone.js source code](http://backbonejs.org/docs/backbone.html)
   * [Backbone the Primer](https://github.com/jashkenas/backbone/wiki/Backbone%2C-The-Primer)

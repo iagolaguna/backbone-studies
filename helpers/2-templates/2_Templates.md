@@ -1,8 +1,8 @@
-### Backbone Templates
+## Backbone Templates
 
-# Backbone uses underscore.js templates (.ejs) that look a lot like .jsp files
+### Backbone uses underscore.js templates (.ejs) that look a lot like .jsp files
 
-## Creating Template
+#### Creating Template
 
 ```html
 <div>
@@ -16,7 +16,7 @@
 </div>
 ```
 
-# This template expects to receive an object like
+#### This template expects to receive an object like
 ```javascript
   const myObject = { name: 'myObjectName', bills: [{ name: 'myFirstBill', value: "My Bill's value"}]}
 ```
