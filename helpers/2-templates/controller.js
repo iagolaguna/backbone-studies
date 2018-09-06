@@ -5,7 +5,6 @@ import _ from "underscore";
 export class TemplateView extends View {
 	constructor(props){
 		super(props);
-		console.log('props',props)
 	}
   get el() {
     return "#templateDiv";
@@ -38,5 +37,6 @@ export class TemplateView extends View {
       ]
     };
     this.$el.html(this.template(myObject));
+    return this;
   }
 }
