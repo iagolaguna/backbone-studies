@@ -4,7 +4,6 @@ import TemplateExample from "./../templateExample.ejs";
 export class TemplateWithParams extends View {
   constructor(props) {
     super(props);
-    this.listenTo(this.model, "change", this.render);
   }
 
   get el() {
