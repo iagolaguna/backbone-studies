@@ -5,7 +5,8 @@ import $ from "jquery";
 import { AppView } from "../helpers/1-begin/controller.js";
 import { TemplateView } from "../helpers/2-templates/controller.js";
 import { TemplateWithParams } from "../helpers/2-templates/templates-with-parameters/TemplateWithParams.js";
-import { MyTodoModel } from "../helpers/3-model-and-colletions/models/MyTodoModel.js";
+import { MyTodoModel } from "../helpers/3-model-and-colletions/1-models/MyTodoModel";
+import { TodoList } from "./../helpers/3-model-and-colletions/2-collections/MyCollection";
 
 $(document.body).ready(() => {
 
@@ -14,6 +15,8 @@ $(document.body).ready(() => {
   initTemplateExample();
   initTemplateWithParams();
   initAndTestModel();
+
+  initCollection();
 });
 
 const initTemplateExample = () => new TemplateView();
@@ -75,4 +78,45 @@ const initAndTestModel = () => {
   console.log(myModel.get('did_date')); //outputs undefined
   myModel.set('did_date', new Date());
   console.log(myModel.get('did_date')); //outputs 'Thu Sep 06 2018 14:47:36 GMT-0300 (Brasilia Standard Time)'
+}
+
+const initCollection = () => {
+  let myTodoList = new TodoList();
+
+  /**
+   * Collection.create parse the object into the model of the collection, but it need the url that was mentioned before,
+   * if you don't need to make the request you just need to use the add method
+   *
+   * If you didn't put the url property, this method will thrown an error.
+   */
+  // myTodoList.create({ title: 'MyFirstTodo', completed: false  })
+
+  /**
+   * Inserting model direcly into the list
+   * this way of inserting the model into the list doesn't make the request.
+   */
+  const myTodo = new MyTodoModel({title: 'FirstTodo', completed: true});
+
+  myTodoList.add(myTodo)
+
+  const mySecondTodo = new MyTodoModel({title: 'SecondTodo', completed: true});
+
+  myTodoList.add(mySecondTodo);
+
+  console.log(myTodoList.length);//outputs 2
+
+  // You can get the actual data of the Collection just by parsing into a JSON
+
+  console.log(JSON.stringify(myTodoList));
+  // outputs [{"title":"FirstTodo","completed":true},{"title":"SecondTodo","completed":true}]
+
+  // For getting a array of a specific property you can use the method pluck
+  console.log(myTodoList.pluck('title'));
+
+
+  // And you can also remove itens from the list
+
+  myTodoList.remove(myTodo);
+
+  console.log(myTodoList.length); // outputs 1
 }

@@ -1,6 +1,6 @@
-### This file may help you with usefull links and forum posts
+## This file may help you with usefull links and forum posts
 
-## Material
+### Material
   * [Backbone.js for Absolute Beginners](https://adrianmejia.com/blog/2012/09/11/backbone-dot-js-for-absolute-beginners-getting-started/)
   * [Backbone.js](http://backbonejs.org/)
   * [Backbone.js source code](http://backbonejs.org/docs/backbone.html)
@@ -12,7 +12,7 @@
   * [Rendering Subviews with setElement](https://www.joezimjs.com/javascript/backbone-js-subview-rendering-trick/)
   * [EJS Templates](http://ejs.co/)
 
-## Forum Posts
+### Forum Posts
 
  * [StackOverflow Post about passing parameters to a View](https://stackoverflow.com/questions/7803138/how-to-pass-parameters-to-a-view)
 
