@@ -12,8 +12,11 @@
       <%= element.name%>
       <%= element.value%>
   </div>
-  <% }); %>    
+  <% }); %>
 </div>
 ```
 
-# This template expects to receive an object like { name: 'myObjectName', bills: [{ name: 'myFirstBill', value: "My Bill's value"}]}
+# This template expects to receive an object like
+```javascript
+  const myObject = { name: 'myObjectName', bills: [{ name: 'myFirstBill', value: "My Bill's value"}]}
+```

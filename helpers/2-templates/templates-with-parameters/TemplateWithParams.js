@@ -21,7 +21,7 @@ export class TemplateWithParams extends View {
   }
 
   render() {
-    //Getting the props that are passed when the class is instantiated
+    //Getting the props from where we stored them
     const props = this.attributes;
     this.$el.html(this.template(props));
     return this;
