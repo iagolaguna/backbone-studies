@@ -1,17 +1,18 @@
-### Backbone's Views
+## Backbone's Views
 
 
 
-## Create View Class 
+### Create View Class
+
 ```javascript
 import { View } from "backbone";
 
 export class AppView extends View{
-  
+
   /**
   * @description query selector for the element where the view will be render
   */
-  
+
   get el(){
     return '#container';
   }
@@ -19,19 +20,19 @@ export class AppView extends View{
   /**
    * @description first function called after instantiated
    */
-  initialize(){ 
+  initialize(){
     this.render();
   }
 
   /**
    * @description - $el is a jquery Object where you can push content to
    */
-  render (){ 
+  render (){
     this.$el.html('Hello world!!');
   };
 }
 ```
-### Instantiate the view 
+### Instantiate the view
 ```javascript
   const app = new AppView();
 ```
