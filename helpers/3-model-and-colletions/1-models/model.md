@@ -52,3 +52,11 @@ export class MyTodoModel extends Model {
   console.log(mySuperModel.get("completed")); //outputs : false
   console.log(mySuperModel.completed); // outputs: undefined
 ```
+### Setting new properties
+```javascript
+  //using the `mySuperModel` instantiated before
+
+  console.log(mySuperModel.get('did_date')); //outputs undefined
+  mySuperModel.set('did_date', new Date());
+  console.log(mySuperModel.get('did_date')); //outputs 'Thu Sep 06 2018 14:47:36 GMT-0300 (Brasilia Standard Time)'
+```

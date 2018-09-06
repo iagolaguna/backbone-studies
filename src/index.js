@@ -71,4 +71,8 @@ const initAndTestModel = () => {
   console.log(myModel.get('title'));// outputs : 'do something usefull'
   console.log(myModel.get('completed')); //outputs : true
 
+
+  console.log(myModel.get('did_date')); //outputs undefined
+  myModel.set('did_date', new Date());
+  console.log(myModel.get('did_date')); //outputs 'Thu Sep 06 2018 14:47:36 GMT-0300 (Brasilia Standard Time)'
 }
