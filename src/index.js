@@ -1,12 +1,27 @@
-import { Model } from "backbone";
+import {
+  Model
+} from "backbone";
 import App from "./components/app-component/AppComponent.js";
 import _ from "underscore";
 import $ from "jquery";
-import { AppView } from "../helpers/1-begin/controller.js";
-import { TemplateView } from "../helpers/2-templates/controller.js";
-import { TemplateWithParams } from "../helpers/2-templates/templates-with-parameters/TemplateWithParams.js";
-import { MyTodoModel } from "../helpers/3-model-and-colletions/1-models/MyTodoModel";
-import { TodoList } from "./../helpers/3-model-and-colletions/2-collections/MyCollection";
+import {
+  AppView
+} from "./../helpers/1-begin/controller.js";
+import {
+  TemplateView
+} from "./../helpers/2-templates/controller.js";
+import {
+  TemplateWithParams
+} from "../helpers/2-templates/templates-with-parameters/TemplateWithParams.js";
+import {
+  MyTodoModel
+} from "./../helpers/3-models-and-colletions/1-models/MyTodoModel";
+import {
+  TodoList
+} from "./../helpers/3-models-and-colletions/2-collections/MyCollection";
+import {
+  MyViewWithEvents
+} from "./../helpers/4-views/MyViewWithEvents";
 
 $(document.body).ready(() => {
 
@@ -17,6 +32,7 @@ $(document.body).ready(() => {
   initAndTestModel();
 
   initCollection();
+  initTemplateWithEvents();
 });
 
 const initTemplateExample = () => new TemplateView();
@@ -27,8 +43,7 @@ const initApp = () => {
   const model = new Model({
     name: "Backbone test",
     counter: 0,
-    people: [
-      {
+    people: [{
         name: "Iago",
         lastName: "Laguna",
         age: 20
@@ -41,14 +56,15 @@ const initApp = () => {
     ]
   });
 
-  const app = new App({ model });
+  const app = new App({
+    model
+  });
 }
 
 const initTemplateWithParams = () => {
   new TemplateWithParams({
     name: "myNewBill",
-    bills: [
-      {
+    bills: [{
         name: "myNewDinner",
         value: "R$ 1000"
       },
@@ -62,7 +78,7 @@ const initTemplateWithParams = () => {
 
 const initAndTestModel = () => {
   const myDefaultModel = new MyTodoModel();
-  console.log(myDefaultModel.get('title'));// outputs : 'New Todo'
+  console.log(myDefaultModel.get('title')); // outputs : 'New Todo'
   console.log(myDefaultModel.title); // outputs: undefined
   console.log(myDefaultModel.get('completed')); //outputs : false
   console.log(myDefaultModel.completed); // outputs: undefined
@@ -71,7 +87,7 @@ const initAndTestModel = () => {
     completed: true
   })
 
-  console.log(myModel.get('title'));// outputs : 'do something usefull'
+  console.log(myModel.get('title')); // outputs : 'do something usefull'
   console.log(myModel.get('completed')); //outputs : true
 
 
@@ -95,15 +111,21 @@ const initCollection = () => {
    * Inserting model direcly into the list
    * this way of inserting the model into the list doesn't make the request.
    */
-  const myTodo = new MyTodoModel({title: 'FirstTodo', completed: true});
+  const myTodo = new MyTodoModel({
+    title: 'FirstTodo',
+    completed: true
+  });
 
   myTodoList.add(myTodo)
 
-  const mySecondTodo = new MyTodoModel({title: 'SecondTodo', completed: true});
+  const mySecondTodo = new MyTodoModel({
+    title: 'SecondTodo',
+    completed: true
+  });
 
   myTodoList.add(mySecondTodo);
 
-  console.log(myTodoList.length);//outputs 2
+  console.log(myTodoList.length); //outputs 2
 
   // You can get the actual data of the Collection just by parsing into a JSON
 
@@ -119,4 +141,21 @@ const initCollection = () => {
   myTodoList.remove(myTodo);
 
   console.log(myTodoList.length); // outputs 1
+}
+
+const initTemplateWithEvents = () => {
+  const list = {
+    listName: 'myList',
+    itens: [{
+        name: 'firstItem',
+        value: 'firstItemValue'
+      },
+      {
+        name: 'secondItem',
+        value: 'secondItemValue'
+      }
+    ]
+  }
+  new MyViewWithEvents(list);
+
 }

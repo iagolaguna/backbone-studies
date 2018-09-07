@@ -15,13 +15,13 @@ export class TemplateWithParams extends View {
   }
 
   initialize(props) {
-    this.attributes = props;
+    this.props = props;
     this.render();
   }
 
   render() {
     //Getting the props from where we stored them
-    const props = this.attributes;
+    const props = this.props
     this.$el.html(this.template(props));
     return this;
   }
