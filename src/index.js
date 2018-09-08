@@ -155,6 +155,4 @@ const initTemplateWithEvents = () => {
   ]);
   const view = new MyViewWithEvents({collection: myTodoList});
 
-  console.log()
-
 }
