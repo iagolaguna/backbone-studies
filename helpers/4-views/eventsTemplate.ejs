@@ -1,5 +1,4 @@
 <div>
-    <%= listName %>
     <div id="newItem">
         <input type="text" placeholder="item's Name" id="itemName">
         <input type="text" placeholder="item's Value" id="itemValue">
@@ -7,10 +6,10 @@
      </div>
     <div>
         <table>
-        <% itens.map( item => { %>
+        <% models.map( ( { attributes: { title, completed} }) => { %>
             <tr>
-                <td><h6><%= item.name %></h6></td>
-                <td><h6><%= item.value %></h6></td>
+                <td><h6><%= title %></h6></td>
+                <td><h6><%= completed %></h6></td>
             </tr>
         <% })%>
         </table>

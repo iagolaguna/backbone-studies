@@ -144,18 +144,17 @@ const initCollection = () => {
 }
 
 const initTemplateWithEvents = () => {
-  const list = {
-    listName: 'myList',
-    itens: [{
-        name: 'firstItem',
-        value: 'firstItemValue'
-      },
-      {
-        name: 'secondItem',
-        value: 'secondItemValue'
-      }
-    ]
-  }
-  new MyViewWithEvents(list);
+  let myTodoList = new TodoList([{
+      title: 'firstItem',
+      completed: false
+    },
+    {
+      title: 'secondItem',
+      completed: true
+    }
+  ]);
+  const view = new MyViewWithEvents({collection: myTodoList});
+
+  console.log()
 
 }

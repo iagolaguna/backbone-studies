@@ -1,7 +1,13 @@
 import { View } from "backbone";
 import Template from "./eventsTemplate.ejs";
+import { MyTodoModel } from "../3-models-and-colletions/1-models/MyTodoModel";
 
 export class MyViewWithEvents extends View{
+
+  constructor(attrs){
+    super(attrs);
+    this.collection.bind('add', this.render.bind(this))
+  }
 
   get el(){
     return '#viewWithEvents'
@@ -10,28 +16,35 @@ export class MyViewWithEvents extends View{
   get template(){
     return Template;
   }
-  
+
   get events(){
     return {
-      'click #newItemButton': 'pushElement'
-    };
+      'click button#newItemButton': 'pushElement'
+    }
   }
 
-  initialize(list){
-    this.props = list;
+  initialize(){
     this.render();
   }
 
   render(){
-    this.$el.html(this.template(this.props));
+    this.$el.html(this.template(this.collection));
+    return this;
   }
 
   pushElement(){
-    this.getNewItemValues();
+    const newItem = this.getNewItemValues();
+    if(newItem.title){
+      this.collection.add(new MyTodoModel(newItem));
+    }
+    
   }
 
   getNewItemValues(){
-    console.log(this.$el);
+    return { 
+      title: this.$('#itemName')[0].value,
+      completed: false
+    }
   }
 
 }
