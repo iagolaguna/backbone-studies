@@ -32,7 +32,7 @@
 ### Let's make an example.
 
 #### Creating our template
-```html
+```ejs
 <div>
     <div id="newItem">
         <input type="text" placeholder="item's Name" id="itemName">
