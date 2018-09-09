@@ -153,6 +153,13 @@ const initTemplateWithEvents = () => {
       completed: true
     }
   ]);
-  const view = new MyViewWithEvents({collection: myTodoList});
+
+  const callBackEventOnSave = ({models}) => {
+    const rawResult = models.map(({ attributes: { title, completed }}) => ({title,completed}) );
+    console.log(rawResult);
+  }
+  
+  const view = new MyViewWithEvents({collection: myTodoList, saveCallback: callBackEventOnSave});
+
 
 }

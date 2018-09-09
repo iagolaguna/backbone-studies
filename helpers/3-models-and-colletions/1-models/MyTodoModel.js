@@ -5,7 +5,10 @@ export class MyTodoModel extends Model{
   get defaults(){
     return {
       title: 'New Todo',
-      completed: false
+      completed: false,
+      toggleCompleted: function(){
+        this.completed = !this.completed
+      }
     }
   }
 

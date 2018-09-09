@@ -6,7 +6,9 @@ export class MyViewWithEvents extends View{
 
   constructor(attrs){
     super(attrs);
-    this.collection.bind('add', this.render.bind(this))
+    this.collection.bind('add', this.render.bind(this));
+    this.saveCallback = attrs.saveCallback;
+
   }
 
   get el(){
@@ -19,8 +21,14 @@ export class MyViewWithEvents extends View{
 
   get events(){
     return {
-      'click button#newItemButton': 'pushElement'
+      'click button#newItemButton': 'pushElement',
+      'click input.taskCompletedCheckBox' : 'markTodoAsCompleted',
+      'click button#saveTestButton': 'save'
     }
+  }
+
+  save() {
+    this.saveCallback(this.collection);
   }
 
   initialize(){
@@ -30,6 +38,14 @@ export class MyViewWithEvents extends View{
   render(){
     this.$el.html(this.template(this.collection));
     return this;
+  }
+
+  markTodoAsCompleted(event){
+    const todoTitleTarget = event.target.parentElement.parentElement.firstElementChild.textContent;
+    const todoTargetModel = this.collection.models[this.collection.models.findIndex(({ attributes: { title }}) => title === todoTitleTarget)];
+    
+    todoTargetModel.attributes.toggleCompleted();
+    this.render();
   }
 
   pushElement(){

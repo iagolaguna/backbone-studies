@@ -36,20 +36,23 @@
 <div>
     <div id="newItem">
         <input type="text" placeholder="item's Name" id="itemName">
-        <input type="text" placeholder="item's Value" id="itemValue">
         <button id="newItemButton">New Item</button>
      </div>
     <div>
         <table>
-        <% models.map( ( { attributes: { title, completed} }) => { %>
+        <tr>
+            <td><h6>Titulo</h6></td>
+            <td><h6>Completado</h6></td>
+        </tr>
+        <% models.reverse().map( ( { attributes: { title, completed} }) => { %>
             <tr>
                 <td><h6><%= title %></h6></td>
-                <td><h6><%= completed %></h6></td>
+                <td><input class="taskCompletedCheckBox" type="checkbox" <%= completed ? "checked" : '' %> ></td>
             </tr>
         <% })%>
         </table>
     </div>
-    <button id="saveButton">Save</button>
+    <button id="saveTestButton">Save</button>
 </div>
 ```
 #### Creating our view
@@ -107,7 +110,8 @@ const view = new MyViewWithEvents({collection: myTodoList});
 
   get events(){
     return {
-      'click button#newItemButton': 'pushElement'
+      'click button#newItemButton': 'pushElement',
+      'click input.taskCompletedCheckBox' : 'markTodoAsCompleted',
     }
   }
 
@@ -139,6 +143,12 @@ const view = new MyViewWithEvents({collection: myTodoList});
 ```
 > The `.bind(this)` is needed, otherwise the class losses it's context
 
-#### That's pretty much it. We new can create now Todos.
+### Creating our event for the saving action
+#### There are many ways to do it, the way we will do it is passing a callback function for the View:
+
+```javascript 
+
+
+```
 
 
