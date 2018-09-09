@@ -157,8 +157,14 @@ const view = new MyViewWithEvents({collection: myTodoList});
 
   /* Now we need to create and event listener and receive the event
   callback in the contructor.
-  * Inside the get events function of our View, we add this new Event 'click button#saveTestButton': 'save'.
+  * Inside the get events function of our View, we add this new Event 'click button#saveTestButton': 'save'. like this:
   */
+  get events(){
+    return {
+      ...ourOtherEvents,
+      'click button#saveTestButton': 'save'
+    }
+  }
 
   // We're going to store the callback function inside the `this.saveCallback', inside the contructor of the View, add the following line:
   this.saveCallback = attrs.saveCallback;
