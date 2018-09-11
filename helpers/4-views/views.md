@@ -14,10 +14,10 @@
  * `$el` (property) - Jquery object
  * `render` (function) - where you can add html to your `$el`
 #### Optional Properties
- * `tagName` (property) -
- * `className` (property) -
- * `attributes` (property) -
- * `id` (property) -
+ * `tagName` (property) - In case you want to change your view to another html tag, by the default it's a `div` tag
+ * `className` (property) - Aditional classes that will be add to your tag.
+ * `attributes` (property) - Aditional attributes.
+ * `id` (property) - The html tag Id
  * `events` (property) - See the next topic
  > By default the element is an empty div.
 
@@ -25,8 +25,8 @@
 
 #### The events of an view are store on a property of the class
 ##### An event delegation must be something like:
-```javascript 
-{"EVENT_TYPE QUERY_SELECTOR_OF_THE_ELEMENT":    "NAME_OF_THE_FUNCTION_TO_BE_INVOLKED" } 
+```javascript
+{"EVENT_TYPE QUERY_SELECTOR_OF_THE_ELEMENT":    "NAME_OF_THE_FUNCTION_TO_BE_INVOLKED" }
 ```
 
 ### Let's make an example.
@@ -89,7 +89,7 @@ import { MyTodoModel } from "../3-models-and-colletions/1-models/MyTodoModel";
 
 ```
 #### Now instatiate the view passing our collection
-```javascript 
+```javascript
 let myTodoList = new TodoList([{
       title: 'firstItem',
       completed: false
@@ -120,11 +120,11 @@ const view = new MyViewWithEvents({collection: myTodoList});
     if(newItem.title){
       this.collection.add(new MyTodoModel(newItem));
     }
-    
+
   }
 
   getNewItemValues(){
-    return { 
+    return {
       title: this.$('#itemName')[0].value,
       completed: false
     }
@@ -168,7 +168,7 @@ const view = new MyViewWithEvents({collection: myTodoList});
 
   // We're going to store the callback function inside the `this.saveCallback', inside the contructor of the View, add the following line:
   this.saveCallback = attrs.saveCallback;
-  
+
 
   // Then we create the 'save' function that will just call the callback that we received as parameter:
   save() {
@@ -178,4 +178,3 @@ const view = new MyViewWithEvents({collection: myTodoList});
 ```
 
 
- 
