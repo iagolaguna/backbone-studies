@@ -1,0 +1,21 @@
+<div>
+    <div id="newItem">
+        <input type="text" placeholder="item's Name" id="itemName">
+        <button id="newItemButton">New Item</button>
+     </div>
+    <div>
+        <table>
+        <tr>
+            <td><h6>Titulo</h6></td>
+            <td><h6>Completado</h6></td>
+        </tr>
+        <% models.map( ( { attributes: { title, completed} }) => { %>
+            <tr>
+                <td><h6><%= title %></h6></td>
+                <td><input class="taskCompletedCheckBox" type="checkbox" <%= completed ? "checked" : '' %> ></td>
+            </tr>
+        <% })%>
+        </table>
+    </div>
+    <button id="saveTestButton">Save</button>
+</div>
